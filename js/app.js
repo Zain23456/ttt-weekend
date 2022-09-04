@@ -18,10 +18,10 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.box')
 const messageEl = document.querySelector('#message')
-
+const resetBtnEl = document.querySelector('#reset-button')
 /*----------------------------- Event Listeners -----------------------------*/
 board.addEventListner('click', handleClick)
-
+resetBtnEl.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -59,7 +59,17 @@ function handleClick(evt) {
 }
 
 function getWinner() {
-
+  for(i = 0; i < winningCombos.length, i++) {
+    if (board[winningCombos[i][0]] === 1 && board[winningCombos[i][1]] === 1 && board[winningCombos[i][2]] === 1) {
+      return 1
+    } else if (board[winningCombos[i][0]] === -1 && board[winningCombos[i][1]] === -1 && board[winningCombos[i][2]] === -1) {
+      return -1
+    }
+  }
+//for loop it iterate over winningCombos array
+//the winning value for thre squares is 3
+// if three squares equal to 3 three there is a winner
+//but the array can check 
 }
 
 
