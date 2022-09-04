@@ -20,7 +20,7 @@ const squareEls = document.querySelectorAll('.box')
 const messageEl = document.querySelector('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+board.addEventListner('click', handleClick)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -34,22 +34,23 @@ function render () {
     }
     else if (square === 1) {
       squareEls[index].textContent = 'O'
+    } else if (square === '') {
+      squareEls[index].textContent = ''
     }
-    if (winner === '') {
-      messageEl.textContent = `Your turn  Player ${turn}`
-  } else if (winner === 'T') {
-    messageEl.textContent = `It is a tie`
-  } else {
-    messageEl.textContent = `Player ${winner} wins!!`
-  }
   })
+  if (winner === '') {
+    messageEl.textContent = turn === 1 ? 'Your turn  Player X' : 'Your turn Player O' 
+} else if (winner === 'T') {
+  messageEl.textContent = 'It is a tie'
+} else {
+  messageEl.textContent = `Player ${winner} wins!!`
 }
-    //} //renderWinner()
-    //render a message: if winner has a value of null us template literal inside a turnary to say which players turn it is
-  //renderMessage()
+}
 
-    //if winner is equal to tie render a message
-    //else congradulatory message to the play that has one
+function handleClick(evt) {
+  let sqIdx = evt.target.id.substring(2)
+    
+}
 
 
 function init() {

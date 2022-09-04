@@ -21,5 +21,6 @@ div {
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+  position: relative;
 }
 
