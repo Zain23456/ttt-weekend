@@ -49,7 +49,17 @@ function render () {
 
 function handleClick(evt) {
   let sqIdx = evt.target.id.substring(2)
-    
+  if (board[sqIdx] !== '' || winner !== '') {
+    return
+  }
+  board[sqIdx] = turn
+  turn *= -1
+  winner = getWinner()
+  render()
+}
+
+function getWinner() {
+
 }
 
 
