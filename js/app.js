@@ -19,8 +19,11 @@ let board, turn, winner
 const squareEls = document.querySelectorAll('.box')
 const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('#reset-button')
+
 /*----------------------------- Event Listeners -----------------------------*/
-board.addEventListner('click', handleClick)
+squareEls.forEach((square) => {
+  square.addEventListener('click', handleClick)
+})
 resetBtnEl.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -29,12 +32,12 @@ init()
 
 function render () {
   board.forEach((square, index) => {
-    if (square === -1) {
+    if (square === 1) {
       squareEls[index].textContent = 'X'
     }
-    else if (square === 1) {
+    else if (square === -1) {
       squareEls[index].textContent = 'O'
-    } else if (square === '') {
+    } else if (square === null) {
       squareEls[index].textContent = ''
     }
   })
@@ -49,7 +52,7 @@ function render () {
 
 function handleClick(evt) {
   let sqIdx = evt.target.id.substring(2)
-  if (board[sqIdx] !== '' || winner !== '') {
+  if (board[sqIdx] !== null || winner !== null) {
     return
   }
   board[sqIdx] = turn
@@ -58,13 +61,21 @@ function handleClick(evt) {
   render()
 }
 
+//console.log(winningCombos.length)
+
 function getWinner() {
-  for(i = 0; i < winningCombos.length, i++) {
-    if (board[winningCombos[i][0]] === 1 && board[winningCombos[i][1]] === 1 && board[winningCombos[i][2]] === 1) {
+  for (let i = 0; i < winningCombos.length; i++) {
+    if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3) {
+      
       return 1
-    } else if (board[winningCombos[i][0]] === -1 && board[winningCombos[i][1]] === -1 && board[winningCombos[i][2]] === -1) {
+    } else if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
       return -1
     }
+  }
+  if (!board.includes(null)) {
+    return 'T'
+  } else {
+    return null
   }
 //for loop it iterate over winningCombos array
 //the winning value for thre squares is 3
@@ -74,9 +85,9 @@ function getWinner() {
 
 
 function init() {
-  board = ['', '', '',
-          '', '', '',
-          '', '', '']
+  board = [null, null, null,
+          null, null, null,
+          null, null, null]
   turn = 1 //represents player x player 0 is -1 * -1 to switch turns
   winner = null
   messageEl.textContent = 'Player X begins'
