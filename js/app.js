@@ -41,12 +41,12 @@ function render () {
       squareEls[index].textContent = ''
     }
   })
-  if (winner === '') {
+  if (winner === null) {
     messageEl.textContent = turn === 1 ? 'Your turn  Player X' : 'Your turn Player O' 
 } else if (winner === 'T') {
   messageEl.textContent = 'It is a tie'
 } else {
-  messageEl.textContent = `Player ${winner} wins!!`
+  messageEl.textContent = winner === 1 ? 'Player X has won!!' : 'Player O has won!!'
 }
 }
 
@@ -77,10 +77,6 @@ function getWinner() {
   } else {
     return null
   }
-//for loop it iterate over winningCombos array
-//the winning value for thre squares is 3
-// if three squares equal to 3 three there is a winner
-//but the array can check 
 }
 
 
