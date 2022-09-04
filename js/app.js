@@ -61,7 +61,6 @@ function handleClick(evt) {
   render()
 }
 
-//console.log(winningCombos.length)
 
 function getWinner() {
   for (let i = 0; i < winningCombos.length; i++) {
@@ -84,9 +83,8 @@ function init() {
   board = [null, null, null,
           null, null, null,
           null, null, null]
-  turn = 1 //represents player x player 0 is -1 * -1 to switch turns
+  turn = 1
   winner = null
   messageEl.textContent = 'Player X begins'
-  // value of 1 means x won, -1 means o won, 'T' is for tie
   render()
 }
