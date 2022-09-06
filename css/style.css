@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
 body {
-    background-color: #EBCFC4;
+    background-color:#EBCFC4;
 	font-family: 'Silkscreen', "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: black;
+  color: ;
 	margin: 0;
   height: 100vh;
   display: flex;
@@ -14,11 +14,11 @@ body {
 h1 {
   font-size: 48px;
   position: relative;
-  bottom: 40px
+  bottom: 100px
 }
 
 h2 {
-  margin: 0 5px;
+  margin: 0 10px;
 }
 
 .board {
@@ -29,7 +29,7 @@ h2 {
 }
 
 .box {
-  background-color: aliceblue;
+  background-color: #F0EFEB;
   border: 2px solid black;
   font-size: 8vmin;
   text-align: center;
@@ -41,5 +41,7 @@ h2 {
   background-color: black;
   color: #f5f5f5;
   margin: 10px;
+  position: relative;
+  top: 80px;
 }
 
